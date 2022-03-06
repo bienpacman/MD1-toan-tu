@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<table>
+    <tr>
+        <td width="300">Amount</td>
+        <td width="250">From Currency</td>
+        <td width="250">To currency</td>
+        <td width="250"></td>
+    </tr>
+    <td> <input type="text" id="nhap"></td>
+    <td>
+        <select name="doitien" id="tiente1">
+<option value="dong">Việt Nam</option>
+<option value="dola">America</option>
+        </select>
+    </td>
+    <td>
+        <select name="doitien" id="tiente2">
+        <option value="dola">USD</option>
+            <option value="dong">VND</option>
+        </select>
+    </td>
+    <td>
+        <button type="button" id="doi" onclick="chuyendoitiente()">Convert</button>
+    </td>
+    <tr>
+        <td colspan="4" align="center"><p id="ketqua">Kết quả chuyển đổi</p> </td>
+    </tr>
+</table>
+<script>
+function chuyendoitiente() {
+    let tiente1,tiente2,giatri,ketqua;
+    tiente1= document.getElementById('tiente1').value;
+    tiente2= document.getElementById('tiente2').value;
+    giatri= document.getElementById('nhap').value;
+    if(tiente1 == "dola" && tiente2 == "dong"){
+        ketqua = giatri*23000
+        document.getElementById("ketqua").innerHTML = "Số tiền = "+ketqua + " VND"
+    }else if(tiente1 == "dong" && tiente2 == "dola"){
+        ketqua = giatri/23000
+        document.getElementById("ketqua").innerHTML = "Số tiền = "+ketqua.toFixed(2) + " USD"
+    }else if(tiente1 == "vn" && tiente1 == "vn"){
+        document.getElementById("ketqua").innerHTML = "Số tiền = "+giatri + " VND"
+    }else{
+        document.getElementById("ketqua").innerHTML = "Số tiền = "+giatri + " USD"
+    }
+
+}
+</script>
+<body>
+</body>
+</html>
